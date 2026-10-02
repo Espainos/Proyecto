@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación del Proyecto - Conversor de Unidades</title>
+    <!-- Carga de la fuente tipo Minecraft desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --accent: #0284c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Tipografía estilo Minecraft para el título principal */
+        header h1 {
+            font-family: 'Press Start 2P', monospace;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .student-info-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .side-image {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-details {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .info-item {
+            background-color: #f1f5f9;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-light);
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-item span {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .action-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-start {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background-color: var(--primary);
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(30, 58, 138, 0.3);
+        }
+
+        .btn-start:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        @media (max-width: 800px) {
+            .student-info-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+            .side-image {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>ACVZDO AI</h1>
+        <p>Sistema Web de Conversión de Magnitudes Físicas</p>
+    </header>
+
+    <div class="card">
+        <div class="student-info-wrapper">
+            <!-- Imagen Izquierda (Reemplazar ruta) -->
+            <img src="TECNM.png" alt="Foto Alumno / Logo 1" class="side-image">
+
+            <!-- Información del Alumno -->
+            <div class="info-details">
+                <div class="info-item">
+                    <label>Alumno:</label>
+                    <span>Angel Rafael Espinosa Vasquez</span>
+                </div>
+                <div class="info-item">
+                    <label>No control:</label>
+                    <span>26920310</span>
+                </div>
+                <div class="info-item">
+                    <label>Materia:</label>
+                    <span>Física para informática</span>
+                </div>
+                <div class="info-item">
+                    <label>Profesor:</label>
+                    <span>Dr. Maya Hernandez Angel</span>
+                </div>
+            </div>
+
+            <!-- Imagen Derecha (Reemplazar ruta) -->
+            <img src="ITVO-Normal.png" alt="Foto Alumno / Logo 2" class="side-image">
+        </div>
+
+        <!-- Botón para pasar al conversor -->
+        <div class="action-container">
+            <a href="conversor.html" class="btn-start">
+                Ir al Conversor de Unidades &rarr;
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

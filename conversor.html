@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Universal de Unidades</title>
+    <!-- Carga de la fuente tipo Minecraft desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --accent: #0284c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .btn-back:hover {
+            color: var(--primary-light);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Tipografía estilo Minecraft */
+        header h1 {
+            font-family: 'Press Start 2P', monospace;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--text-main);
+            background-color: #fff;
+            transition: all 0.2s ease;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .result-box {
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .result-box .title {
+            font-size: 0.85rem;
+            color: #0369a1;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-box .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0c4a6e;
+            word-break: break-all;
+        }
+
+        .formula-info {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="nav-header">
+        <a href="index.html" class="btn-back">&larr; Volver a la Presentación</a>
+    </div>
+
+    <header>
+        <h1>ACVZDO AI</h1>
+        <p>Selecciona la magnitud e introduce el valor a convertir.</p>
+    </header>
+
+    <div class="card">
+        <!-- Selector de Magnitud -->
+        <div class="form-group">
+            <label for="magnitude-select">1. Tipo de Magnitud Física:</label>
+            <select id="magnitude-select">
+                <option value="angulo_plano">Ángulo Plano</option>
+                <option value="longitud">Longitud</option>
+                <option value="area">Área</option>
+                <option value="volumen">Volumen</option>
+                <option value="masa">Masa</option>
+                <option value="densidad">Densidad</option>
+                <option value="tiempo">Tiempo</option>
+                <option value="velocidad">Velocidad</option>
+                <option value="fuerza">Fuerza</option>
+                <option value="energia">Energía / Trabajo / Calor</option>
+                <option value="presion">Presión</option>
+                <option value="potencia">Potencia</option>
+                <option value="flujo_magnetico">Flujo Magnético</option>
+                <option value="campo_magnetico">Campo Magnético</option>
+            </select>
+        </div>
+
+        <!-- Entrada de Valor -->
+        <div class="form-group">
+            <label for="input-value">2. Cantidad a Convertir:</label>
+            <input type="number" id="input-value" value="1" step="any" placeholder="Ingrese una cantidad">
+        </div>
+
+        <!-- Unidades Origen / Destino -->
+        <div class="grid-2">
+            <div class="form-group">
+                <label for="unit-from">De (Primera unidad):</label>
+                <select id="unit-from"></select>
+            </div>
+            <div class="form-group">
+                <label for="unit-to">A (Segunda unidad):</label>
+                <select id="unit-to"></select>
+            </div>
+        </div>
+
+        <!-- Resultado -->
+        <div class="result-box">
+            <div class="title">RESULTADO</div>
+            <div class="value" id="result-display">0</div>
+        </div>
+
+        <div class="formula-info" id="formula-display">--</div>
+    </div>
+</div>
+
+<script src="conversionData.js"></script>
+<script src="converterApp.js"></script>
+</body>
+</html>
